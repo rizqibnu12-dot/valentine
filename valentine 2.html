@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin-top: 80px;
+    color: #c2185b;
+    font-size: 3em;
+}
+
+/* AMPLOP */
+.envelope-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    cursor: pointer;
+}
+
+.envelope {
+    width: 250px;
+    height: 150px;
+    background: #f06292;
+    border-radius: 10px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.flap {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-bottom: 80px solid #ec407a;
+    top: -80px;
+    left: 0;
+}
+
+/* POPUP SURAT */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    animation: fadeIn 0.5s ease;
+}
+
+.close {
+    text-align: right;
+    font-size: 20px;
+    cursor: pointer;
+    color: #c2185b;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+/* Animasi Hati */
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
+</style>
+</head>
+
+<div id="loader">
+    <h2>Loading Love... 💖</h2>
+</div>
+
+<style>
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ffe6f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    font-family: cursive;
+    color: #c2185b;
+}
+</style>
+
+<script>
+window.addEventListener("load", function(){
+    document.getElementById("loader").style.display = "none";
+});
+</script>
+
+<body>
+
+<h1>💖 Happy Valentine's Day 💖</h1>
+<p>Klik amplopnya ya sayang 💌</p>
+
+<div class="envelope-container" onclick="openLetter()">
+    <div class="envelope">
+        <div class="flap"></div>
+    </div>
+</div>
+
+<!-- MODAL SURAT -->
+<div class="modal" id="letterModal">
+    <div class="modal-content">
+        <div class="close" onclick="closeLetter()">✖</div>
+        <h2>Untuk Kamu ❤️</h2>
+        <p>
+            sayangggg,<br><br>
+            sekali lagi aku mau berterima kasih sama kamu yanggggg. terima kasih atas usaha kerasmu, tekat kamu buat kita bisa bareng bareng lagi yanggg.                 	    terima kasih kamu udah balik di kehidupanku lagi yangg. gatau mau ngomong apa lagiii pokoknya aku sayang banget sama kamuuuuuuuu. semoga kita     	    tetap satu tujuan dan tetep sama sama mengusahakan hubungan ini yanggg. 
+	    SUMPAHHHH AKU SAYANG BANGETTTT SAMA KAMU!
+        </p>
+    </div>
+</div>
+
+<script>
+function openLetter() {
+    document.getElementById("letterModal").style.display = "flex";
+}
+
+function closeLetter() {
+    document.getElementById("letterModal").style.display = "none";
+}
+
+/* Animasi hati */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
